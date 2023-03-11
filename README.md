@@ -1,4 +1,5 @@
 # WaterMark
+![screenshot](./screenshot.png)
 
 ## Description
 Welcome to my project! This is a WaterMarkApp made in Python. With this app, users can easily protect their images. It allows users to add an image as a watermark quickly and easily. I hope you like it, and I look forward to your contributions!
@@ -23,10 +24,10 @@ Commit and push<br>
 Wait for pull request to be merged
 
 ## Maintainer & Contributors
-@wolflergf
+[@wolflergf](https://github.com/wolflergf)
 
 ## Contact
 If you want to contact me you can send an email to wolflergf@gmail.com
 
 ## License
-This project uses the following license: GNU GPLv3.
+This project uses the following license: [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
