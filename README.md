@@ -19,11 +19,13 @@ Documentation: If you see the need for some additional documentation, feel free 
 
 ## Instructions
 
-Fork this repository<br>
-Clone the forked repository<br>
-Add your contributions (code or documentation)<br>
-Commit and push<br>
-Wait for pull request to be merged
+Fork this repository.<br>
+Create a branch: `git checkout -b <branch_name>`.<br>
+Make your changes and commit them: `git commit -m '<commit_message>'`<br>
+Push to the original branch: `git push origin simple-weather/<location>`<br>
+Create the pull request.
+
+
 
 ## Maintainer & Contributors
 [@wolflergf](https://github.com/wolflergf)
