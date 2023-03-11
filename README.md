@@ -1,5 +1,5 @@
 # WaterMark
-![screenshot](./screenshot.png)
+![screenshot](./main.PNG)
 
 ## Description
 Welcome to my project! This is a WaterMarkApp made in Python. With this app, users can easily protect their images. It allows users to add an image as a watermark quickly and easily. I hope you like it, and I look forward to your contributions!
