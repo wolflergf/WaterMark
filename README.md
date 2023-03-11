@@ -8,7 +8,7 @@ Welcome to my project! This is a WaterMarkApp made in Python. With this app, use
 
 ## Contributing
 
-We appreciate any contributions! Here are some ways you can contribute:
+I appreciate any contributions! Here are some ways you can contribute:
 
 Report bugs: If you encounter any bugs, please let us know. Open up an issue and let me know the problem.<br>
 Contribute code: If you are a developer and want to contribute, follow the instructions below to get started!<br>
