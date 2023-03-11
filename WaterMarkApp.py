@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """ Short description of this Python module.
 Longer description of this module.
 This program is free software: you can redistribute it and/or modify it under
