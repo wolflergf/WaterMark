@@ -21,3 +21,12 @@ Clone the forked repository<br>
 Add your contributions (code or documentation)<br>
 Commit and push<br>
 Wait for pull request to be merged
+
+## Maintainer & Contributors
+@wolflergf
+
+## Contact
+If you want to contact me you can send an email to wolflergf@gmail.com
+
+## License
+This project uses the following license: GNU GPLv3.
