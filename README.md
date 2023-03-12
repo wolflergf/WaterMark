@@ -22,7 +22,7 @@ Documentation: If you see the need for some additional documentation, feel free 
 Fork this repository.<br>
 Create a branch: `git checkout -b <branch_name>`.<br>
 Make your changes and commit them: `git commit -m '<commit_message>'`<br>
-Push to the original branch: `git push origin watermark/<location>`<br>
+Push to the original branch: `git push origin WaterMark/<location>`<br>
 Create the pull request.
 
 
