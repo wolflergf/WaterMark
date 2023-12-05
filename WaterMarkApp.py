@@ -1,85 +1,108 @@
 #!/usr/bin/env python3
-""" Short description of this Python module.
-Longer description of this module.
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with
-this program. If not, see <http://www.gnu.org/licenses/>.
+"""
+Watermark App: A simple application to add watermarks to images using Tkinter and PIL.
 """
 
-__author__ = "Wolfler Guzzo Ferreira"
-__contact__ = "wolflerpython@gmail.com"
-__copyright__ = "Copyright 2023"
-__credits__ = ["Wolfler Guzzo Ferreira"]
-__date__ = "2023/03/10"
-__deprecated__ = False
-__email__ = "wolflerpython@gmail.com"
-__license__ = "GPLv3"
-__maintainer__ = "developer"
-__status__ = "Production"
-__version__ = "0.0.1"
-
+# Import necessary libraries
 from tkinter import *
 from tkinter.filedialog import askopenfilename, asksaveasfilename
-
 from PIL import Image, ImageTk
 
+# Global variables for image paths and objects
 image_path = ""
 image_obj = None
-image_to_salve = None
-
+image_to_save = None
 
 def upload_image():
+    """
+    Function to upload an image and display it on the canvas.
+    """
     global image_obj, image_path
+
+    # Open file dialog to choose an image file
     image_path = askopenfilename()
+
+    # Update the label to show the uploaded image path
     label_path.config(text="Image uploaded: " + image_path)
+
+    # Open the image using PIL and create a thumbnail for display
     img = Image.open(image_path)
     img.thumbnail((500, 500), Image.LANCZOS)
     photo = ImageTk.PhotoImage(img)
+
+    # Display the image on the canvas
     canvas.create_image(0, 0, image=photo, anchor=NW)
     canvas.update()
+
+    # Save the PhotoImage object for later use
     image_obj = photo
+
+    # Enable the "Upload Watermark" button
     upload_image_watermark_button.config(state=NORMAL)
 
-
 def add_watermark():
-    global image_obj, image_to_salve
+    """
+    Function to add a watermark to the uploaded image and display the result.
+    """
+    global image_obj, image_to_save
+
+    # Open file dialog to choose a watermark image file
     watermark_path = askopenfilename()
+
+    # Open the watermark image using PIL
     watermark = Image.open(watermark_path)
+
+    # Open the original image and convert it to RGBA mode for transparency support
     image = Image.open(image_path).convert("RGBA")
+
+    # Paste the watermark onto the image at a specific position with a mask
     image.paste(watermark, (100, 300), mask=watermark)
+
+    # Create a thumbnail for display
     image.thumbnail((500, 500), Image.LANCZOS)
     photo = ImageTk.PhotoImage(image)
+
+    # Display the watermarked image on the canvas
     canvas.create_image(0, 0, image=photo, anchor=NW)
     canvas.update()
-    image_to_salve = image
+
+    # Save the watermarked image for later use
+    image_to_save = image
     image_obj = photo
 
-
 def save_image():
+    """
+    Function to save the watermarked image to a file.
+    """
+    # Open file dialog to choose a file path for saving
     file_path = asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
-    image_to_salve.save(file_path)
 
+    # Save the watermarked image to the chosen file path
+    image_to_save.save(file_path)
 
+# Create the main application window
 root = Tk()
-root.title("Water Mark App")
-label_path = Label(root, text="Upload an image to add a Water Mark")
+root.title("Watermark App")
+
+# Label to display the path of the uploaded image
+label_path = Label(root, text="Upload an image to add a watermark")
 label_path.pack()
+
+# Canvas for displaying images
 canvas = Canvas(root, width=500, height=500)
 canvas.pack()
 
+# Button to upload an image
 upload_image_button = Button(root, text="Upload Image", command=upload_image)
 upload_image_button.pack()
 
-upload_image_watermark_button = Button(root, text="Upload Water Mark", command=add_watermark, state=DISABLED)
+# Button to upload a watermark and add it to the image
+upload_image_watermark_button = Button(root, text="Upload Watermark", command=add_watermark, state=DISABLED)
 upload_image_watermark_button.pack()
 
+# Button to save the watermarked image
 save_image_button = Button(root, text="Save", command=save_image)
 save_image_button.pack()
 
+# Start the Tkinter event loop
 root.mainloop()
